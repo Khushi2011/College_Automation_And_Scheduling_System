@@ -13,9 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path, include
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
 from CollegeAutomation_app import views
 from CollegeAutomation_app import HodViews
 from CollegeAutomation_app import StaffViews
@@ -24,6 +26,7 @@ from CollegeAutomation import settings
 urlpatterns = [
     path('demo',views.showDemoPage),
     path('admin/', admin.site.urls),
+    path('accounts/',include('django.contrib.auth.urls')),
     path('',views.ShowLoginPage,name="show_login"),
     path('get_user_details', views.GetUserDetails),
     path('doLogin',views.doLogin,name="do_login"),

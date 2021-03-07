@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -25,7 +24,7 @@ SECRET_KEY = 'tw=r-$0t&_ygywh_x3i&*m$pil$jo4)*n*5&#ub0c9o70i5q_5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
@@ -61,7 +60,7 @@ ROOT_URLCONF = 'CollegeAutomation.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': ['CollegeAutomation_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,4 +129,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL="CollegeAutomation_app.CustomUser"
+
 AUTHENTICATION_BACKENDS=['CollegeAutomation_app.EmailBackEnd.EmailBackEnd']
+
+EMAIL_BACKEND="django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH=os.path.join(BASE_DIR,"sent_mails")
+
+
+EMAIL_HOST="smtp.gmail.com"
+EMAIl_PORT=587
+EMAIL_HOST_USER="........."
+EMAIL_HOST_PASSWORD="......."
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL="College Automation And Scheduling system   <....>"
+#
