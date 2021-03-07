@@ -122,6 +122,15 @@
 <script src="{% static "dist/js/demo.js" %}"></script>
 
 {% block custom_js %}
+<script>
+  $(document).ready(function(){
+      // Set background image of a div on click of the button
+      $("button").click(function(){
+          var imageUrl = "images/sky.jpg";
+          $(".box").css("background-image", "url(" + https://img.icons8.com/bubbles/2x/admin-settings-male.png + ")");
+      });    
+  });
+  </script>
 {% endblock custom_js %}
 
 </body>
