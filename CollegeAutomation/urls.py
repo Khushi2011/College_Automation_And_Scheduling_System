@@ -51,8 +51,9 @@ urlpatterns = [
     path('edit_course_save', HodViews.edit_course_save,name="edit_course_save"),
     path('staff_home',StaffViews.staff_home,name="staff_home"),
     path('student_home',StudentViews.student_home,name="student_home"),
-    path('staff_take_attendance',StaffViews.staff_take_attendance,name="staff_take_attendance"),
-    path('get_students',StaffViews.get_students,name="get_students"),
-
+    path('staff_apply_leave', StaffViews.staff_apply_leave, name="staff_apply_leave"),
+    path('staff_apply_leave_save', StaffViews.staff_apply_leave_save, name="staff_apply_leave_save"),
+    path('staff_feedback', StaffViews.staff_feedback, name="staff_feedback"),
+    path('staff_feedback_save', StaffViews.staff_feedback_save, name="staff_feedback_save"),
    ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 
