@@ -136,10 +136,10 @@ EMAIL_BACKEND="django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH=os.path.join(BASE_DIR,"sent_mails")
 
 
-EMAIL_HOST="smtp.gmail.com"
-EMAIl_PORT=587
-EMAIL_HOST_USER="........."
-EMAIL_HOST_PASSWORD="......."
-EMAIL_USE_TLS=True
-DEFAULT_FROM_EMAIL="College Automation And Scheduling system   <....>"
-#
+#EMAIL_HOST="smtp.gmail.com"
+#EMAIl_PORT=587
+#EMAIL_HOST_USER=".."
+#EMAIL_HOST_PASSWORD="....."
+#EMAIL_USE_TLS=True
+#DEFAULT_FROM_EMAIL="College Automation And Scheduling system   <....>"
+
