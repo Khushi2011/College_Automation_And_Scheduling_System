@@ -3,16 +3,49 @@
 Leave Report and Apply for Leave
 {% endblock page_title %}
 {% block main_content %}
+
+<style type="text/css">
+  table {border:ridge 5px rgb(48, 14, 14) ;}
+  td    {border:inset 1px rgb(71, 138, 118); }
+</style>
+<style>
+  input[type=date], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=email], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=pASSWORD], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+    
+  </style>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
                     <div class="row">
               <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Apply for Leave</h3>
-              </div>
+            <div class="card card-purple">
+             
               <!-- /.card-header -->
               <!-- form start -->
                <form action="{% url 'staff_apply_leave_save' %}" method="post">
@@ -25,7 +58,7 @@ Leave Report and Apply for Leave
                   </div>
                   <div class="form-group">
                     <label>Leave Reason</label>
-                    <textarea class="form-control" rows="6" name="leave_msg"></textarea>
+                    <textarea class="form-control" rows="6" name="leave_msg" style="border:ridge 3px rgb(48, 14, 14);"></textarea>
                   </div>
                    <div class="form-group">
                       {% if messages %}
@@ -44,13 +77,13 @@ Leave Report and Apply for Leave
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary btn-block" id="fetch_student">Apply for Leave</button>
+                  <button type="submit" class="btn btn-primary btn-block" id="fetch_student" style="background-color:rgb(88, 56, 56) ;">Apply for Leave</button>
                 </div>
                </form>
             </div>
 
             <!-- /.card -->
-           <div class="card card-primary">
+           <div class="card card-dark">
               <div class="card-header">
                 <h3 class="card-title">Leave Apply History</h3>
               </div>

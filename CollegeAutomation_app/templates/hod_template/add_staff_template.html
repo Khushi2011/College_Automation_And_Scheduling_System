@@ -3,16 +3,40 @@
 Add Staff
 {% endblock page_title %}
 {% block main_content %}
+<style>
+  input[type=text], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=email], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=pASSWORD], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }  
+  
+    
+  </style>
+  
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
           <div class="row">
               <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Add Staff</h3>
-              </div>
+            <div class="card card-purple">
+              
               <!-- /.card-header -->
               <!-- form start -->
               <form role="form" action="/add_staff_save" method="post">
@@ -59,7 +83,7 @@ Add Staff
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary btn-block">Add Staff</button>
+                  <button type="submit" class="btn btn-primary btn-block" style="background-color:rgb(88, 56, 56) ;">Add Staff</button>
                 </div>
               </form>
             </div>
