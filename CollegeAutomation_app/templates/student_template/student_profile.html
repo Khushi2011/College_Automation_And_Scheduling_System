@@ -3,6 +3,37 @@
 Edit Profile
 {% endblock page_title %}
 {% block main_content %}
+<style>
+  input[type=text], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=email], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=pASSWORD], select {
+    display: inline-block; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+     color: rgb(26, 23, 23);
+     border:ridge 3px rgb(48, 14, 14);
+  }
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+    
+  </style>
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -10,9 +41,7 @@ Edit Profile
               <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Edit Profile</h3>
-              </div>
+              
               <!-- /.card-header -->
               <!-- form start -->
               <form role="form" action="{% url 'student_profile_save' %}" method="post">
@@ -59,7 +88,7 @@ Edit Profile
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary btn-block">Save Profile</button>
+                  <button type="submit" class="btn btn-primary btn-block" style="background-color:rgb(88, 56, 56) ;">Save Profile</button>
                 </div>
               </form>
             </div>

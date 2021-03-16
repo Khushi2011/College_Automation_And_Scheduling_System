@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
+import json
 from django.views.decorators.csrf import csrf_exempt
 
-from CollegeAutomation_app.models import CustomUser, Staffs, Courses, Subjects, Students,FeedBackStudent,FeedBackStaffs,LeaveReportStudent,LeaveReportStaff
+from CollegeAutomation_app.models import CustomUser, Staffs, Courses, Subjects, Students,FeedBackStudent,FeedBackStaffs,LeaveReportStudent,LeaveReportStaff,Attendance,AttendanceReport
 
 def admin_home(request):
     return render(request,"hod_template/home_content.html")
@@ -248,7 +249,7 @@ def student_feedback_message_replied(request):
     feedback_message=request.POST.get("message")
 
     try:
-        feedback=FeedBackStudent.objects.get(id=feedback_id)
+        feedback=FeedBackStaffs.objects.get(id=feedback_id)
         feedback.feedback_reply=feedback_message
         feedback.save()
         return HttpResponse("True")
@@ -322,3 +323,32 @@ def admin_profile_save(request):
         except:
             messages.error(request, "Failed to Update Profile")
             return HttpResponseRedirect(reverse("admin_profile"))
+def admin_view_attendance(request):
+    subjects=Subjects.objects.all()
+    return render(request,"hod_template/admin_view_attendance.html",{"subjects":subjects})
+
+@csrf_exempt
+def admin_get_attendance_dates(request):
+    subject=request.POST.get("subject")
+    subject_obj=Subjects.objects.get(id=subject)
+    attendance=Attendance.objects.filter(subject_id=subject_obj)
+    attendance_obj=[]
+    for attendance_single in attendance:
+        data={"id":attendance_single.id,"attendance_date":str(attendance_single.attendance_date)}
+        attendance_obj.append(data)
+
+    return JsonResponse(json.dumps(attendance_obj),safe=False)
+
+
+@csrf_exempt
+def admin_get_attendance_student(request):
+    attendance_date=request.POST.get("attendance_date")
+    attendance=Attendance.objects.get(id=attendance_date)
+
+    attendance_data=AttendanceReport.objects.filter(attendance_id=attendance)
+    list_data=[]
+
+    for student in attendance_data:
+        data_small={"id":student.student_id.admin.id,"name":student.student_id.admin.first_name+" "+student.student_id.admin.last_name,"status":student.status}
+        list_data.append(data_small)
+    return JsonResponse(json.dumps(list_data),content_type="application/json",safe=False)

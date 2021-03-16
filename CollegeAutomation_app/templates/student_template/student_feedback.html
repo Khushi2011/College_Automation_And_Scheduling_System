@@ -44,7 +44,7 @@ Feedback Message
               <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-purple">
-             
+              
               <!-- /.card-header -->
               <!-- form start -->
                <form action="{% url 'student_feedback_save' %}" method="post">
@@ -54,7 +54,6 @@ Feedback Message
                   <div class="form-group">
                     <label>Feedback Message</label>
                     <textarea class="form-control" rows="6" name="feedback_msg" style="border:ridge 3px rgb(48, 14, 14);"></textarea>
-             
                   </div>
                    <div class="form-group">
                       {% if messages %}
@@ -73,7 +72,7 @@ Feedback Message
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary btn-block" id="fetch_student"  style="background-color:rgb(88, 56, 56) ;">Leave a Feedback Message</button>
+                  <button type="submit" class="btn btn-primary btn-block" id="fetch_student" style="background-color:rgb(88, 56, 56) ;">Leave a Feedback Message</button>
                 </div>
                </form>
             </div>
@@ -110,3 +109,4 @@ Feedback Message
     </section>
     <!-- /.content -->
 {% endblock main_content %}
+

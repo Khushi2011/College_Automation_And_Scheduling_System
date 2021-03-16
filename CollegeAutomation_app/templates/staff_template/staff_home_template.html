@@ -1,12 +1,107 @@
 {% extends 'staff_template/base_template.html' %} 
 {% block page_title %}
-Hii this is staff !!!!!!
+Staff basic info
 {% endblock page_title %}
 {% block main_content %}
-<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{ students_count }}</h3>
+
+              <p>Student Under me</p>
+            </div>
+          
+            <a href="{% url 'staff_take_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{ attendance_count }}</h3>
+
+              <p>Total Attendance Taken</p>
+            </div>
+           
+            <a href="{% url 'staff_take_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>{{ leave_count }}</h3>
+
+              <p>Total Leave Taken</p>
+            </div>
+           
+            <a href="{% url 'staff_apply_leave' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <h3>{{ subject_count }}</h3>
+
+              <p>Total Subjects</p>
+            </div>
+           
+            <a href="#" class="small-box-footer">&nbsp;</a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+       
+       
+    </div>
     <section class="content">
-      <div class="container-fluid">
-</div>
-    </section>
-    <!-- /.content -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="card card-purple">
+                
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form role="form" action="{% url 'staff_profile_save' %}" method="post">
+                    {% csrf_token %}
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label>Username</label>
+                      <input type="text" class="form-control" name="username" value="{{ user.username }}" disabled="disabled" style="background-color: gray; color: honeydew;">
+                    </div>
+                    <div class="form-group">
+                      <label>Username</label>
+                      <input type="text" class="form-control" name="username" value="{{ user.email }}" disabled="disabled" style="background-color: gray; color: honeydew;">
+                    </div>
+                     <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}"disabled="disabled" style="background-color: gray; color: honeydew;">
+                    </div>
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}" disabled="disabled" style="background-color: gray; color: honeydew;">
+                    </div>
+
+  
+  
+  
+            </div>
+            </div>
+        </div>
+      </section>
+  </section>
+  <!-- /.content -->
 {% endblock main_content %}
+
+
+
+

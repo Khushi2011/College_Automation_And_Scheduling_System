@@ -15,7 +15,7 @@ body {
   padding: 45px;
   text-align: center;
   background: #915a5a;
-  color: rgb(2, 0, 0);
+  color: rgb(247, 245, 245);
   font-size: 30px;
 }
 
@@ -75,9 +75,8 @@ body {
       <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
     </li>
   </ul>
-      <h4 style="margin-left: 10px;margin-top: 5px; color:white; font-size:30px;">College Automation And Scheduling System Staff page</h4>
-    <!-- Right navbar links -->
-   <ul class="navbar-nav ml-auto">
+    <h4 style="margin-left: 10px;margin-top: 5px; color:white; font-size:30px;">College Automation And Scheduling System Staff</h4>
+    <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item">
         <a  href="{% url 'logout' %}" style="background-color:white; color: black;" class="button" >
@@ -87,78 +86,89 @@ body {
       </li>
     </ul>
 
+    <!-- Right navbar links -->
   </nav>
+  </div>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-{% include 'staff_template/sidebar_template.html' with user=user %}
- <!-- Content Wrapper. Contains page content -->
- 
- <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    {% include 'staff_template/sidebar_template.html' with user=user id=id %}
+   
+  <!-- Content Wrapper. Contains page content -->
+  
+   <div class="content-wrapper">
+       <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">
               <div class="header">
-              {% block page_title%}
-{% endblock page_title%}
-              </div></h1>
+                {% block page_title %}
+                {% endblock page_title %}
+              </div>
+            </h1>
           </div><!-- /.col -->
-        <div class="col-sm-6">
+          <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-         
-              <li class="breadcrumb-item"><a href='/admin_home' class="button" style="background-color:green; color:white;" class="">
+            
+              <li class="breadcrumb-item"><a href="{% url 'staff_home' %}" class="button" style="background-color:green; color:white;" class="">
                 <span class="	fa fa-university">Home</span></a></li>
+             
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    
-<!-- /.content-header -->
-{% block main_content %}{% endblock main_content %}
   
+    <!-- /.content-header -->
+    
+     {% block main_content %}{% endblock main_content %}
+
+  </div>
+  <!-- /.content-wrapper -->
+   
+</div>
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{%static "plugins/jquery/jquery.min.js" %}"></script>
+<script src="{% static "plugins/jquery/jquery.min.js" %}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{%static "plugins/jquery-ui/jquery-ui.min.js" %}"></script>
+<script src="{% static "plugins/jquery-ui/jquery-ui.min.js" %}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="{%static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+<script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
 <!-- ChartJS -->
-<script src="{%static "plugins/chart.js/Chart.min.js" %}"></script>
+<script src="{% static "plugins/chart.js/Chart.min.js" %}"></script>
 <!-- Sparkline -->
-<script src="{%static "plugins/sparklines/sparkline.js" %}"></script>
+<script src="{% static "plugins/sparklines/sparkline.js" %}"></script>
 <!-- JQVMap -->
-<script src="{%static "plugins/jqvmap/jquery.vmap.min.js" %}"></script>
-<script src="{%static "plugins/jqvmap/maps/jquery.vmap.usa.js" %}"></script>
+<script src="{% static "plugins/jqvmap/jquery.vmap.min.js" %}"></script>
+<script src="{% static "plugins/jqvmap/maps/jquery.vmap.usa.js" %}"></script>
 <!-- jQuery Knob Chart -->
-<script src="{%static "plugins/jquery-knob/jquery.knob.min.js" %}"></script>
+<script src="{% static "plugins/jquery-knob/jquery.knob.min.js" %}"></script>
 <!-- daterangepicker -->
-<script src="{%static "plugins/moment/moment.min.js" %}"></script>
-<script src="{%static "plugins/daterangepicker/daterangepicker.js" %}"></script>
+<script src="{% static "plugins/moment/moment.min.js" %}"></script>
+<script src="{% static "plugins/daterangepicker/daterangepicker.js" %}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="{%static "plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js" %}"></script>
+<script src="{% static "plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js" %}"></script>
 <!-- Summernote -->
-<script src="{%static "plugins/summernote/summernote-bs4.min.js" %}"></script>
+<script src="{% static "plugins/summernote/summernote-bs4.min.js" %}"></script>
 <!-- overlayScrollbars -->
-<script src="{%static "plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js" %}"></script>
+<script src="{% static "plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js" %}"></script>
 <!-- AdminLTE App -->
-<script src="{%static "dist/js/adminlte.js" %}"></script>
+<script src="{% static "dist/js/adminlte.js" %}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{%static "dist/js/pages/dashboard.js" %}"></script>
+<script src="{% static "dist/js/pages/dashboard.js" %}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{%static "dist/js/demo.js" %}"></script>
+<script src="{% static "dist/js/demo.js" %}"></script>
 
+{% block custom_js %}
+{% endblock custom_js %}
 
-{% block custom_is %}
-{% endblock custom_is %}
 </body>
 </html>

@@ -1,12 +1,94 @@
 {% extends 'student_template/base_template.html' %} 
 {% block page_title %}
-Hii this is student!!!!!!
+Student Basic info
 {% endblock page_title %}
 {% block main_content %}
-<!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-</div>
-    </section>
-    <!-- /.content -->
+<section class="content">
+    <div class="container-fluid">
+       
+        <div class="row">
+
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{ total_attendance }}</h3>
+
+              <p>Total Attendance</p>
+            </div>
+            
+            <a href="{% url 'student_view_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{ attendance_absent }}</h3>
+
+              <p>Absent</p>
+            </div>
+           
+            <a href="{% url 'student_view_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>{{ attendance_present }}</h3>
+
+              <p>Present</p>
+            </div>
+        
+            <a href="{% url 'student_view_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <h3>{{ subjects }}</h3>
+
+              <p>Total Subjects</p>
+            </div>
+            
+            <a href="#" class="small-box-footer">&nbsp;</a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <form role="form" action="{% url 'student_profile_save' %}" method="post">
+        {% csrf_token %}
+      <div class="card-body">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" name="username" value="{{ user.username }}" disabled="disabled" style="background-color: gray; color: honeydew;">
+        </div>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" name="username" value="{{ user.email }}" disabled="disabled" style="background-color: gray; color: honeydew;"> 
+        </div>
+         <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}" disabled="disabled" style="background-color: gray; color: honeydew;">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}"disabled="disabled" style="background-color: gray; color: honeydew;">
+        </div><from></from>          </div></div></div>
+      
+    </div>
+  </section>
+  <!-- /.content -->
 {% endblock main_content %}
+{% block custom_js %}
+
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js"></script>
+
+{% endblock custom_js %}
+
