@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="{% url 'staff_profile' %}" class="d-block">{{ user.username }}</a>
+          <a href="{% url 'staff_profile' %}" class="d-block"><i class="far fa-edit"></i>&nbsp;&nbsp;{{ user.username }}</a>
         </div>
       </div>
 
@@ -23,8 +23,8 @@
           <li class="nav-item">
             {% url 'staff_home' as staff_home %}
             <a href="{{ staff_home }}" class="nav-link {% if request.path == staff_home %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="fas fa-home"></i>
+              <p>&nbsp;&nbsp;
                 Home
               </p>
             </a>
@@ -32,8 +32,8 @@
           <li class="nav-item">
             {% url 'staff_apply_leave' as staff_apply_leave %}
             <a href="{{ staff_apply_leave }}" class="nav-link {% if request.path == staff_apply_leave %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="fas fa-envelope-square"></i>
+              <p> &nbsp;&nbsp;
                 Apply Leave
               </p>
             </a>
@@ -41,8 +41,8 @@
           <li class="nav-item">
             {% url 'staff_feedback' as staff_feedback %}
             <a href="{{ staff_feedback }}" class="nav-link {% if request.path == staff_feedback %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="far fa-address-card"></i>
+              <p>&nbsp;&nbsp;
                 Feedback
               </p>
             </a>
@@ -50,8 +50,8 @@
           <li class="nav-item">
             {% url 'staff_add_result' as staff_add_result %}
             <a href="{{ staff_add_result }}" class="nav-link {% if request.path == staff_add_result %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+               <i class="fa fa-plus-square"></i>
+              <p>&nbsp;&nbsp;
                 Add Result
               </p>
             </a>
@@ -59,7 +59,7 @@
           <li class="nav-item">
             {% url 'staff_take_attendance' as staff_take_attendance %}
             <a href="{{ staff_take_attendance }}" class="nav-link {% if request.path == staff_take_attendance %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="far fa-edit"></i> &nbsp;&nbsp;
               <p>
                 Take Attendance
               </p>
@@ -68,8 +68,8 @@
           <li class="nav-item">
             {% url 'staff_update_attendance' as staff_update_attendance %}
             <a href="{{ staff_update_attendance }}" class="nav-link {% if request.path == staff_update_attendance %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+  <i class="fas fa-braille"></i>
+              <p>&nbsp;
                 View Update Attendance
               </p>
             </a>

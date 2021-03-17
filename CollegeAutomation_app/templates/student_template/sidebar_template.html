@@ -10,7 +10,8 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="{% url 'student_profile' %}" class="d-block">{{ user.username }}</a>
+          <a href="{% url 'student_profile' %}" class="d-block" > <i class="far fa-edit"></i>&nbsp;&nbsp;{{ user.username }}
+          </a>
         </div>
       </div>
 
@@ -23,8 +24,8 @@
           <li class="nav-item">
           {% url 'student_home' as student_home %}
             <a href="/student_home" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="fas fa-home"></i>
+              <p>&nbsp;&nbsp;
                Home
               </p>
             </a>
@@ -33,8 +34,8 @@
 	<li class="nav-item">
             {% url 'student_apply_leave' as student_apply_leave %}
             <a href="{{ student_apply_leave }}" class="nav-link {% if request.path == student_apply_leave %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="fas fa-envelope-square"></i>
+              <p> &nbsp;&nbsp;
                 Apply for Leave
               </p>
             </a>
@@ -42,8 +43,8 @@
            <li class="nav-item">
             {% url 'student_feedback' as student_feedback %}
             <a href="{{ student_feedback }}" class="nav-link {% if request.path == student_feedback %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="far fa-address-card"></i>
+              <p>&nbsp;&nbsp;
                 Feedback Message
               </p>
             </a>
@@ -51,8 +52,8 @@
           <li class="nav-item">
             {% url 'student_view_result' as student_view_result %}
             <a href="{{ student_view_result }}" class="nav-link {% if request.path == student_view_result %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="fas fa-user-graduate"></i>
+              <p>&nbsp;&nbsp;
                 Grade Card
               </p>
             </a>
@@ -61,8 +62,8 @@
             {% url 'student_view_attendance' as student_view_attendance %}
             {% url 'student_view_attendance_post' as student_view_attendance_post %}
             <a href="{{ student_view_attendance }}" class="nav-link {% if request.path == student_view_attendance %} active {% endif %} {% if request.path == student_view_attendance_post %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
+              <i class="fas fa-braille"></i>
+              <p>&nbsp;&nbsp;
                 View Attendance
               </p>
             </a>

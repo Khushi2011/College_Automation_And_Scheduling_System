@@ -67,6 +67,8 @@ urlpatterns = [
     path('admin_view_attendance', HodViews.admin_view_attendance,name="admin_view_attendance"),
     path('admin_get_attendance_dates', HodViews.admin_get_attendance_dates,name="admin_get_attendance_dates"),
     path('admin_get_attendance_student', HodViews.admin_get_attendance_student,name="admin_get_attendance_student"),
+    path('check_email_exist', HodViews.check_email_exist,name="check_email_exist"),
+    path('check_username_exist', HodViews.check_username_exist,name="check_username_exist"),
     
     path('staff_home',StaffViews.staff_home,name="staff_home"),
     path('staff_profile', StaffViews.staff_profile, name="staff_profile"),

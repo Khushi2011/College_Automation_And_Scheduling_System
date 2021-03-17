@@ -8,6 +8,21 @@ Student Basic info
        
         <div class="row">
 
+        
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>{{ subjects }}</h3>
+
+              <p>Total Subjects</p>
+            </div>
+            <div class="icon">
+              <i class="ion-clipboard"></i>
+            </div>
+            <a href="#" class="small-box-footer">&nbsp;</a>
+          </div>
+        </div>
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-info">
@@ -16,49 +31,45 @@ Student Basic info
 
               <p>Total Attendance</p>
             </div>
-            
+            <div class="icon">
+              <i class="ion-clipboard"></i>
+            </div>
             <a href="{% url 'student_view_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <!-- ./col -->
+       
         <!-- ./col -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>{{ attendance_absent }}</h3>
-
-              <p>Absent</p>
-            </div>
-           
-            <a href="{% url 'student_view_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
               <h3>{{ attendance_present }}</h3>
 
               <p>Present</p>
             </div>
-        
+            <div class="icon">
+              <i class="ion-checkmark-circled"></i>
+            </div>
             <a href="{% url 'student_view_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>{{ subjects }}</h3>
+              <h3>{{ attendance_absent }}</h3>
 
-              <p>Total Subjects</p>
+              <p>Absent</p>
             </div>
-            
-            <a href="#" class="small-box-footer">&nbsp;</a>
+            <div class="icon">
+              <i class="ion-alert-circled"></i>
+            </div>
+            <a href="{% url 'student_view_attendance' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <!-- ./col -->
+        
         <!-- ./col -->
       </div>
       <form role="form" action="{% url 'student_profile_save' %}" method="post">
