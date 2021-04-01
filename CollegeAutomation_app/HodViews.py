@@ -151,9 +151,7 @@ def add_subject_save(request):
         except:
             messages.error(request,"Failed to Add Subject")
             return HttpResponseRedirect("/add_subject")
-def manage_staff(request):
-    staffs=Staffs.objects.all()
-    return render(request,"hod_template/manage_staff_template.html",{"staffs":staffs})
+
 
 def manage_student(request):
     students=Students.objects.all()
@@ -165,7 +163,10 @@ def manage_course(request):
 
 def manage_subject(request):
     subjects=Subjects.objects.all()
-    return render(request,"hod_template/manage_subject_template.html",{"subjects":subjects})               
+    return render(request,"hod_template/manage_subject_template.html",{"subjects":subjects})   
+def manage_staff(request):
+    staffs=Staffs.objects.all()
+    return render(request,"hod_template/manage_staff_template.html",{"staffs":staffs})            
 def edit_staff(request,staff_id):
     staff=Staffs.objects.get(admin=staff_id)
     return render(request,"hod_template/edit_staff_template.html",{"staff":staff,"id":staff_id})
